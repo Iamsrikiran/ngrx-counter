@@ -1,0 +1,6 @@
+<div class="form-group">
+    <h4>{{(channelname$ | async)}} </h4>
+    <input type="text" class="form-control" placeholder="enter value" [(ngModel)]="value">
+    <button class="btn btn-info" (click)="onAdd()">Add to counter</button>
+    <button (click)="changeChannelname()">change channelname</button>
+</div>
