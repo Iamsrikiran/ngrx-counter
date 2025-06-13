@@ -1,24 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PostListComponent } from './posts/post-list/post-list.component';
-import { AddpostComponent } from './posts/addpost/addpost.component';
-import { EditpostComponent } from './posts/editpost/editpost.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   {
-    path: '',
-    component: HomeComponent,
+    path: 'posts',
+    loadChildren: () =>
+      import('./posts/posts.module').then((m) => m.PostModule),
   },
   {
     path: 'counter',
     loadChildren: () =>
       import('./counter/counter.module').then((m) => m.CounterModule),
-  },
-  {
-    path: 'posts',
-    loadChildren: () =>
-      import('./posts/posts.module').then((m) => m.PostModule),
   },
 ];
 
